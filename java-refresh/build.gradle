@@ -1,0 +1,9 @@
+plugins {
+    id 'application'
+}
+
+application {
+    // 실행할 클래스 지정: .\gradlew.bat :java-refresh:run -Pmain=패키지.클래스
+    mainClass = project.findProperty('main') ?: 'study.refresh.Hello'
+    applicationDefaultJvmArgs = ['-Dfile.encoding=UTF-8', '-Dsun.stdout.encoding=UTF-8', '-Dstdout.encoding=UTF-8']
+}

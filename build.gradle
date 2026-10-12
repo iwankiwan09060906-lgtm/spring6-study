@@ -1,0 +1,33 @@
+// 루트 빌드: 모든 하위 모듈 공통 설정
+subprojects {
+    apply plugin: 'java'
+
+    group = 'study.spring6'
+    version = '0.0.1'
+
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(17)   // JDK 17 고정
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testImplementation platform('org.junit:junit-bom:5.11.4')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.compilerArgs << '-parameters'
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+        testLogging { events 'passed', 'failed', 'skipped' }
+    }
+}

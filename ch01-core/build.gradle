@@ -1,0 +1,8 @@
+// 1장 스프링 코어 (W4~W6)
+dependencies {
+    implementation platform("org.springframework:spring-framework-bom:${springFrameworkVersion}")
+    implementation 'org.springframework:spring-context'
+
+    testImplementation platform("org.springframework:spring-framework-bom:${springFrameworkVersion}")
+    testImplementation 'org.springframework:spring-test'
+}

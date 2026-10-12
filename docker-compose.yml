@@ -1,0 +1,17 @@
+# 실습용 외부 시스템. 진도에 맞춰 서비스를 추가한다 (mongodb, redis, rabbitmq ...)
+# 실행: docker compose up -d postgres   /  종료: docker compose down
+services:
+  postgres:
+    image: postgres:16
+    container_name: spring6-postgres
+    environment:
+      POSTGRES_DB: study
+      POSTGRES_USER: study
+      POSTGRES_PASSWORD: study
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

@@ -1,0 +1,10 @@
+plugins {
+    // 로컬에 JDK 17이 없으면 Gradle이 자동으로 받아 옴
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.10.0'
+}
+
+rootProject.name = 'spring6-study'
+
+// 진도에 맞춰 모듈을 하나씩 추가한다 (ch02-mvc, ch03-rest ... ch14-caching, mini-project)
+include 'java-refresh'
+include 'ch01-core'
