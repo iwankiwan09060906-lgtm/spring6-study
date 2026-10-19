@@ -22,7 +22,7 @@ public class PrimitiveVsReference {
 
         // 3) 참조형: 대입하면 주소가 복사된다 -> 같은 객체를 가리킴
         int[] arr1 = {1, 2, 3};
-        int[] arr2 = arr1;
+        int[] arr2 = arr1.clone();
         arr2[0] = 99;
         System.out.println("arr1[0]=" + arr1[0]);
 
@@ -30,8 +30,9 @@ public class PrimitiveVsReference {
         String s1 = new String("hi");
         String s2 = new String("hi");
         String s3 = s1;
-        System.out.println("s1 == s2      : " + (s1 == s2));
-        System.out.println("s1.equals(s2) : " + s1.equals(s2));
-        System.out.println("s1 == s3      : " + (s1 == s3));
+        System.out.println("s1 == s2      : " + (s1 == s2)); //다른 객체
+        System.out.println("s1.equals(s2) : " + s1.equals(s2)); //같은 값
+        System.out.println("s1 == s3      : " + (s1 == s3)); //같은 객체
+
     }
 }
